@@ -161,7 +161,8 @@ public class EmployeeImpl implements EmployeeDao{
 
     @Override
     public Map<Employee, Job> getEmployeeById(Long employeeId) {
-        String sql = "select employees.*,j.* from employees  inner join jobs j on employees.job_id=j.id where employees.id=?";
+        String sql = "select employees.*,j.* from employees" +
+                "  inner join jobs j on employees.job_id=j.id where employees.id=?";
         Map<Employee,Job> employeeJobMap = new HashMap<>();
 
 
@@ -170,7 +171,7 @@ public class EmployeeImpl implements EmployeeDao{
             preparedStatement.setLong(1,employeeId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                        Employee employee= new Employee(
+                Employee employee= new Employee(
                         resultSet.getLong("id"),
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name"),

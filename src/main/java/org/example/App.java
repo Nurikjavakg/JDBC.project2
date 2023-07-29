@@ -36,7 +36,7 @@ public class App
                     System.out.println(jobService.getJobById(1L));
                 }
                 case 5->{
-                    System.out.println(jobService.sortByExperience("asc"));
+                    System.out.println(jobService.sortByExperience("desc"));
                 }
                 case 6->{
                     System.out.println(jobService.getJobByEmployeeId(2L));
